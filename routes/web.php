@@ -8,6 +8,13 @@ Route::get('/delete/{id}', ['as' => 'delete.user', 'uses' => 'UserInfoController
 Route::post('/store', ['as' => 'store.user', 'uses' => 'UserInfoController@store']);
 Route::get('/update/{id}', ['as' => 'update.user.form', 'uses' => 'UserInfoController@updateForm']);
 Route::post('/update', ['as' => 'update.user', 'uses' => 'UserInfoController@update']);
+
+
+
 Route::group(['prefix' => 'dashboard', 'as' => 'dashboard.', 'middleware' => 'auth'], function (){
     Route::get('/', ['as' => 'index', 'uses' => 'DashboardController@index']);
+
+    Route::get('/slider', ['as' => 'slider.index', 'uses' => 'SliderController@index']);
+    Route::post('/slider/store', ['as' => 'slider.store', 'uses' => 'SliderController@store']);
+
 });

@@ -4,6 +4,11 @@
 
 @section('content')
 
+
+
+    <div class="d-flex justify-content-center text-center">
+        <a style="font-size: 40px" href="{{route('dashboard.slider.index')}}">Make slider</a>
+    </div>
     @if(Session::has('successes'))
 
     <div class="alert alert-primary" role="alert">

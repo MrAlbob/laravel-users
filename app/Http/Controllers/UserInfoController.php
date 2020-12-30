@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Slider;
 use App\Models\UserInfo;
 use Illuminate\Http\Request;
 
@@ -13,7 +14,9 @@ class UserInfoController extends Controller
 
         $userInfo = UserInfo::paginate(10);
 
-        return view('main.index', ['userInfo' => $userInfo]);
+        $sliders = Slider::all();
+
+        return view('main.index', ['userInfo' => $userInfo, 'sliders' => $sliders]);
     }
 
     /**
