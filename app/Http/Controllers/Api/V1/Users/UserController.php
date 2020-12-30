@@ -24,6 +24,7 @@ class UserController extends Controller
         {
             $passHash = Hash::make($request->password);
         }
+
         User::create(array_merge($request->except('password'), ['password' => $passHash]));
         return ['successes' => 'the user has been created'];
     }
