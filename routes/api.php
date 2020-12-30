@@ -28,5 +28,6 @@ Route::group(['prefix' => 'auth' , 'namespace' => 'Api\V1\Auth'] , function (){
 
 
 Route::group(['prefix' => 'user' , 'namespace' => 'Api\V1\Users', 'middleware' => 'auth:api'], function (){
-    Route::get('test', ['uses' => 'UserController@getAllUsers']);
+    Route::get('getAllUsers', ['uses' => 'UserController@getAllUsers']);
+    Route::post('store-user', ['uses' => 'UserController@store']);
 });
